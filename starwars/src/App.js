@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import axios from "axios";
 import './App.css';
+import {Grid} from 'semantic-ui-react';
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -8,12 +10,131 @@ const App = () => {
   // Fetch characters from the star wars api in an effect hook. Remember, anytime you have a 
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
+  const [characterState, setCharacterState] = useState(null);
 
-  return (
-    <div className="App">
-      <h1 className="Header">React Wars</h1>
-    </div>
-  );
+  useEffect(() => {
+    axios
+        .get(`https://swapi.co/api/people`)
+        .then(result => {
+            return setCharacterState(result.data.results);
+        })
+  }, [])
+
+  if (characterState === null) {
+    return <h2>Loading...</h2>
+  }
+  else {
+      return <div className="App">
+                <h1 className="Header">React Wars</h1>
+                <Grid columns={2} divided className="GridMod">
+                  <Grid.Row>
+                    <Grid.Column>
+                      <h2>{characterState[0].name}</h2>
+                      <ul>
+                        <li>{`height: ${characterState[0].height}`}</li>
+                        <li>{`mass : ${characterState[0].mass}`}</li>
+                        <li>{`hair color: ${characterState[0].hair_color}`}</li>
+                        <li>{`skin color: ${characterState[0].skin_color}`}</li>
+                      </ul>
+                    </Grid.Column>
+                    <Grid.Column>
+                        <h2>{characterState[1].name}</h2>
+                        <ul>
+                          <li>{`height: ${characterState[1].height}`}</li>
+                          <li>{`mass : ${characterState[1].mass}`}</li>
+                          <li>{`hair color: ${characterState[1].hair_color}`}</li>
+                          <li>{`skin color: ${characterState[1].skin_color}`}</li>
+                        </ul>
+                    </Grid.Column>
+                  </Grid.Row>
+                  
+                  <Grid.Row>
+                    <Grid.Column>
+                    <h2>{characterState[2].name}</h2>
+                        <ul>
+                          <li>{`height: ${characterState[2].height}`}</li>
+                          <li>{`mass : ${characterState[2].mass}`}</li>
+                          <li>{`hair color: ${characterState[2].hair_color}`}</li>
+                          <li>{`skin color: ${characterState[2].skin_color}`}</li>
+                        </ul>
+                    </Grid.Column>
+                    <Grid.Column>
+                    <h2>{characterState[3].name}</h2>
+                        <ul>
+                          <li>{`height: ${characterState[3].height}`}</li>
+                          <li>{`mass : ${characterState[3].mass}`}</li>
+                          <li>{`hair color: ${characterState[3].hair_color}`}</li>
+                          <li>{`skin color: ${characterState[3].skin_color}`}</li>
+                        </ul>
+                    </Grid.Column>
+                  </Grid.Row>
+
+                  <Grid.Row>
+                    <Grid.Column>
+                    <h2>{characterState[4].name}</h2>
+                        <ul>
+                          <li>{`height: ${characterState[4].height}`}</li>
+                          <li>{`mass : ${characterState[4].mass}`}</li>
+                          <li>{`hair color: ${characterState[4].hair_color}`}</li>
+                          <li>{`skin color: ${characterState[4].skin_color}`}</li>
+                        </ul>
+                    </Grid.Column>
+                    <Grid.Column>
+                    <h2>{characterState[5].name}</h2>
+                        <ul>
+                          <li>{`height: ${characterState[5].height}`}</li>
+                          <li>{`mass : ${characterState[5].mass}`}</li>
+                          <li>{`hair color: ${characterState[5].hair_color}`}</li>
+                          <li>{`skin color: ${characterState[5].skin_color}`}</li>
+                        </ul>
+                    </Grid.Column>
+                  </Grid.Row>
+
+                  <Grid.Row>
+                    <Grid.Column>
+                    <h2>{characterState[6].name}</h2>
+                        <ul>
+                          <li>{`height: ${characterState[6].height}`}</li>
+                          <li>{`mass : ${characterState[6].mass}`}</li>
+                          <li>{`hair color: ${characterState[6].hair_color}`}</li>
+                          <li>{`skin color: ${characterState[6].skin_color}`}</li>
+                        </ul>
+                    </Grid.Column>
+                    <Grid.Column>
+                    <h2>{characterState[7].name}</h2>
+                        <ul>
+                          <li>{`height: ${characterState[7].height}`}</li>
+                          <li>{`mass : ${characterState[7].mass}`}</li>
+                          <li>{`hair color: ${characterState[7].hair_color}`}</li>
+                          <li>{`skin color: ${characterState[7].skin_color}`}</li>
+                        </ul>
+                    </Grid.Column>
+                  </Grid.Row>
+
+                  <Grid.Row>
+                    <Grid.Column>
+                    <h2>{characterState[8].name}</h2>
+                        <ul>
+                          <li>{`height: ${characterState[8].height}`}</li>
+                          <li>{`mass : ${characterState[8].mass}`}</li>
+                          <li>{`hair color: ${characterState[8].hair_color}`}</li>
+                          <li>{`skin color: ${characterState[8].skin_color}`}</li>
+                        </ul>
+                    </Grid.Column>
+                    <Grid.Column>
+                    <h2>{characterState[9].name}</h2>
+                        <ul>
+                          <li>{`height: ${characterState[9].height}`}</li>
+                          <li>{`mass : ${characterState[9].mass}`}</li>
+                          <li>{`hair color: ${characterState[9].hair_color}`}</li>
+                          <li>{`skin color: ${characterState[9].skin_color}`}</li>
+                        </ul>
+                    </Grid.Column>
+                  </Grid.Row>
+                </Grid>
+                {console.log(characterState)}
+            </div>
+  }
 }
 
 export default App;
