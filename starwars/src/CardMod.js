@@ -14,5 +14,5 @@ export function CardMod(props) {
     })
         
 
-    return <GridMod cardap={CardArray} />
+    return <GridMod cardap={CardArray} className="content"/>
 }

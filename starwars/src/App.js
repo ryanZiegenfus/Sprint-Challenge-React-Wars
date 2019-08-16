@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import './App.css';
 import  {CardMod}  from  "./CardMod";
-import {Head} from "./Header"
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -31,7 +30,7 @@ const App = () => {
   return (
 		<div>
       <div className="headerImgDiv"></div>
-      <CardMod value={characterState} className="content"></CardMod>
+      <CardMod value={characterState} ></CardMod>
 		</div>
   )
   
