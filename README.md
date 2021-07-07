@@ -26,13 +26,23 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] What is React JS and what problems does it try and solve? Support your answer with concepts introduced in class and from your personal research on the web.
 
+1. React is a js library used to compose the UI and structure of an app/website. React allows us to break a page into components that will render independantly from the rest of the page. This is great when a website has a lot of different things happening in it. If facebook had to reload the page each time any state changes were made, it would not be as smooth as it currently is. React also allows for components to be reused in a page and customized using jsx modules and props to pass new data into the module.
+
 - [ ] What does it mean to _think_ in react?
+
+2. "Thinking in react" means to plan your page in a way that can make use of reacts capabilities. This means to structure your page while keeping in mind what parts can be made with components, and how the state of different components will change. It is a different way of thinking about the composition of a page than we are used to with static pages.
 
 - [ ] Describe state.
 
+3. The way I think about state is that it is any data that will be changing or responding on a page. This change can be the result of an event, or just time.
+
 - [ ] Describe props.
 
+4. Props are a way to pass data into a module component. A module can be reused as many times as you need in a page, but if you want differnt data to be used for each module, you need to pass in an "attribute" to the jsx and then the module will use that data by accepting that "attribute" as a prop argument in the component file.
+
 - [ ] What are side effects, and how do you sync effects in a React component to state or prop changes?
+
+5. A side effect is anything that happens outside of the function being called. State change is an example of a side effect. We can sync this effect to our function in a few way. One way is to add a state change "event-listener" to our function. This is called useEffect, and it notices any changes in state on our page. we can specify which state changes useEffect will watch by passing in the state we want to watch as the second parameter of useEffect. We can also sync side effects to our function using props. This will cause the funtion to respond to whatever data is passed into its argument as a prop.
 
 ## Project Set Up
 

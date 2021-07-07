@@ -1,8 +1,23 @@
 .App {
   text-align: center;
 }
-.Header {
-  color: #443e3e;
-  text-shadow: 1px 1px 5px #fff;
+
+.headerImgDiv {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-image: url("./sw-bg.jpg");
+  top: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.content {
+  background: rgb(218, 218, 218)!important;
+}
+
+.ui.grid {
+  margin: 200px 0 auto 150px!important;
 }
 /* write your parent styles in here for your App.js */
